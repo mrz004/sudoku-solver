@@ -1,0 +1,47 @@
+@mixin girdX9($size) {
+  display: grid;
+  grid-template-columns: repeat(3, $size);
+  grid-template-rows: repeat(3, $size);
+}
+@mixin centeredGrid {
+  display: grid;
+  place-items: center;
+}
+
+.board {
+  @include girdX9(1fr);
+
+  & > .subBlock {
+    @include girdX9(3rem);
+    border: 1px solid black;
+
+    & > input {
+      @include centeredGrid;
+      text-align: center;
+      outline: transparent;
+      border: 1px solid gray;
+      font-size: 2rem;
+
+      &:invalid {
+        font-size: 0;
+      }
+    }
+  }
+
+  & + button {
+    outline: transparent;
+    border: 2px solid #f2d9b8;
+    font-size: 2rem;
+    background-color: #faebd7;
+    color: hsl(40, 78%, 35%);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    &:hover,
+    &:focus,
+    &:active {
+      color: hsl(40, 95%, 50%);
+      background-color: hsl(34, 20%, 91%);
+      box-shadow: 0 0 10px 5px hsl(34, 20%, 91%);
+    }
+  }
+}
