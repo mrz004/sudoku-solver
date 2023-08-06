@@ -42,8 +42,8 @@ jobs:
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@v3
         with:
-          find: "(?<=(href|src))=\"\/"
-          replace: "=\""
+          find: '(?<=(href|src))="\/'
+          replace: '="'
           regex: true
           include: "index.html"
       - name: Setup Pages
